@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    let context = CIContext()
     
     @IBOutlet weak var displayImage: UIImageView!
     
@@ -18,12 +19,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
-            present(imagePicker, animated: true,
+            navigationController?.present(imagePicker, animated: true,
                                           completion: nil)
         }
     }
     
-
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        navigationController?.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            displayImage.image = image
+        }
+    }
+    
+  
+    @IBAction func sepia(_ sender: Any) {
+        let filter = CIFilter(name: "sepiaFilter")
+    }
+    
   override func viewDidLoad() {
         super.viewDidLoad()
    }
