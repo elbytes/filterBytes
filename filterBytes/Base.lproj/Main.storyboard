@@ -83,7 +83,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.099182872681305795" green="0.10010051963387719" blue="0.12984612579999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KKm-il-vtc" colorLabel="IBBuiltInLabel-Blue"/>
+                    <navigationItem key="navigationItem" id="KKm-il-vtc"/>
                     <connections>
                         <outlet property="displayImage" destination="haf-3g-MH7" id="zLV-DN-eqt"/>
                     </connections>
