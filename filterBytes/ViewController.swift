@@ -35,28 +35,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
   
     @IBAction func sepia(_ sender: Any) {
-        guard let original = original else {
+        if original == nil {
             return
         }
-        let filter = CIFilter(name: "sepiaFilter")
-        filter?.setValue(0.5, forKey: kCIInputIntensityKey)
+        
+        let filter = CIFilter(name: "CISepiaTone")
+        filter?.setValue(05, forKey: kCIInputIntensityKey)
         display(filter: filter!)
+        
     }
     
     
     @IBAction func noir(_ sender: Any) {
-        guard let original = original else {
+        if original == nil {
             return
         }
-        let filter = CIFilter(name: "noirFilter")
+        let filter = CIFilter(name: "CIPhotoEffectNoir")
         display(filter: filter!)
     }
     
     @IBAction func vintage(_ sender: Any) {
-        guard let original =  original else {
+        if original == nil {
             return
         }
-        let filter = CIFilter(name: "vintageFilter")
+        let filter = CIFilter(name: "CIPhotoEffectProcess")
+        display(filter: filter!)
+    }
+    
+    
+    @IBAction func bloom(_ sender: Any) {
+        if original == nil {
+            return
+        }
+        let filter = CIFilter(name: "CIBloom")
+        filter?.setValue(0.5, forKey: kCIInputIntensityKey)
+        filter?.setValue(0.5, forKey: kCIInputRadiusKey)
         display(filter: filter!)
     }
     
